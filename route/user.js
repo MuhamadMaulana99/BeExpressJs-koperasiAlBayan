@@ -5,6 +5,10 @@ const loginController= require('../controller/auth/loginController.js');
 const pengajuanController = require('../controller/koperasi/pengajuanController.js');
 const permohonanController = require('../controller/koperasi/permohonanController.js');
 const angsuranController = require('../controller/koperasi/angsuranController.js');
+
+const masterAnalisaController = require('../controller/master/analisaController.js');
+const masterStaffController = require('../controller/master/staffController.js');
+const masterKasirController = require('../controller/master/kasirController.js');
 const validation = require('../validation/user/validation.js');
 
 const routers = expess.Router();
@@ -29,5 +33,20 @@ routers.get('/pengajuan',pengajuanController.getPengajuan);
 routers.post('/pengajuan',pengajuanController.addPengajuan);
 routers.delete('/pengajuan/:id',pengajuanController.deletePengajuan);
 routers.put('/pengajuan/:id',pengajuanController.putPengajuan);
+
+routers.get('/masterAnalisa',masterAnalisaController.getAnalisa);
+routers.post('/masterAnalisa',masterAnalisaController.addAnalisa);
+routers.delete('/masterAnalisa/:id',masterAnalisaController.deleteAnalisa);
+routers.put('/masterAnalisa/:id',masterAnalisaController.putAnalisa);
+
+routers.get('/masterKasir',masterKasirController.getKasir);
+routers.post('/masterKasir',masterKasirController.addKasir);
+routers.delete('/masterKasir/:id',masterKasirController.deleteKasir);
+routers.put('/masterKasir/:id',masterKasirController.putKasir);
+
+routers.get('/masterStaff',masterStaffController.getStaff);
+routers.post('/masterStaff',masterStaffController.addStaff);
+routers.delete('/masterStaff/:id',masterStaffController.deleteStaff);
+routers.put('/masterStaff/:id',masterStaffController.putStaff);
 
 module.exports = routers;

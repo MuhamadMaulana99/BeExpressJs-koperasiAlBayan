@@ -1,52 +1,31 @@
-const {models: {barangKeluar,dataBarangsModel}} = require('../../model/index.js');
+const {models: {masterStaff}} = require('../../model/index.js');
 
 module.exports = {
-    addUser: async (req, res)=>{
-        const {tglKeluar, kodeBarang, namaBarang, jmlKeluar } = req.body
-        const findBarangMasuk = await dataBarangsModel.findOne({ where: { kodeBarang} });
-        try {
-          if(findBarangMasuk){
-            await dataBarangsModel.update({ jumlahMasuk: parseInt(findBarangMasuk.jumlahMasuk ) - parseInt(jmlKeluar) }, {
-              where: {
-                kodeBarang
-              }
-            });
-          }else{
-            const add = await dataBarangsModel.create({deskripsi, hargaBarang, kodeBarang,namaBarang, jumlahMasuk, satuan});
-          }
-          const add = await barangKeluar.create({tglKeluar, kodeBarang,namaBarang, jmlKeluar})
-          res.json(add)
-        } catch (error) { 
-          return res.status(400).json({ message: ' Belum Tersedia Di Data Barang',
-          data: JSON.parse(kodeBarang)});
-        }
+    addStaff: async (req, res)=>{
+        const {kodeStaff, nama } = req.body
+        const add = await masterStaff.create({kodeStaff, nama})
+        res.json(add)
     },
-    getUser: async (req, res)=>{
-        const get = await barangKeluar.findAll({
-            attributes: ['id','tglKeluar', 'kodeBarang', 'namaBarang', 'jmlKeluar']
+    getStaff: async (req, res)=>{
+        const get = await masterStaff.findAll({
+            attributes: ['id','kodeStaff', 'nama']
           })
-          const val = get?.map((value)=> {
-            return {
-              ...value.dataValues,
-              kodeBarang: JSON.parse(value?.kodeBarang)
-            }
-          })
-        res.json(val);
+        res.json(get)
     },
-    putUser: async (req, res)=>{
+    putStaff: async (req, res)=>{
         const id = req.params.id
-        const {tglKeluar, kodeBarang,namaBarang, jmlKeluar } = req.body
-        const put = await barangKeluar.update({ tglKeluar, kodeBarang, namaBarang, jmlKeluar }, {
+        const {kodeStaff, nama } = req.body
+        const put = await masterStaff.update({ kodeStaff, nama }, {
             where: {
               id,
             }
           })
         res.json(put)
     },
-    deleteUser: async (req, res)=>{
+    deleteStaff: async (req, res)=>{
         const id = req.params.id
         // console.log(req.params, 'idd')
-        const del = await barangKeluar.destroy({
+        const del = await masterStaff.destroy({
             where: {
               id,
             }

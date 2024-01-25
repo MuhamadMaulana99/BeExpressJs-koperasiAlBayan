@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes)=>{
     const masterKasir = sequelize.define('tb_mst_kasir',{
         kodeKasir: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.INTEGER(11),
             default: null,
         },
-        namaBarang: {
+        nama: {
             type: DataTypes.STRING(50),
             default: null,
         },

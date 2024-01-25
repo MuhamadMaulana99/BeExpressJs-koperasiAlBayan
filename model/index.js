@@ -9,18 +9,18 @@ const sequelize = new Sequelize('db_alBayan', 'root', '', {
   dialect: 'mysql'
 });
 
-// const suplayerModel = require('./bangunanModel/suplayerModels.js')(sequelize, Sequelize.DataTypes);
-// const dataBarangsModel = require('./bangunanModel/dataBarangModels.js')(sequelize, Sequelize.DataTypes);
-// const barangMasukModel = require('./bangunanModel/barangMasukModels.js')(sequelize, Sequelize.DataTypes);
-// const barangKeluarModel = require('./bangunanModel/barangKeluarModels.js')(sequelize, Sequelize.DataTypes);
-// const masterBarang = require('./masterModel/masterBarangModels.js')(sequelize, Sequelize.DataTypes);
 const pengajuan = require('./koperasi/pengajuanModel.js')(sequelize, Sequelize.DataTypes);
 const angsuran = require('./koperasi/angsuranModel.js')(sequelize, Sequelize.DataTypes);
 const permohonan = require('./koperasi/permohonanModel.js')(sequelize, Sequelize.DataTypes);
+
+const masterAnalisa = require('./master/analisaModel.js')(sequelize, Sequelize.DataTypes);
+const masterKasir = require('./master/kasirModel.js')(sequelize, Sequelize.DataTypes);
+const masterStaff = require('./master/staffModel.js')(sequelize, Sequelize.DataTypes);
+
 const loginModel = require('./Auth/loginModels.js')(sequelize, Sequelize.DataTypes);
 const db = {
   sequelize,
-  models: { loginModel: loginModel, angsuran, permohonan:permohonan, pengajuan: pengajuan },
+  models: { loginModel: loginModel, angsuran, permohonan:permohonan, pengajuan: pengajuan , masterAnalisa: masterAnalisa, masterKasir:masterKasir, masterStaff: masterStaff },
 
 }
 try {
