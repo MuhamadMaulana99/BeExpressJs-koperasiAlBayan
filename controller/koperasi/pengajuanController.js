@@ -1,57 +1,38 @@
-const {models: {barangKeluar,dataBarangsModel}} = require('../../model/index.js');
+const { models: { pengajuan } } = require('../../model/index.js');
 
 module.exports = {
-    addUser: async (req, res)=>{
-        const {tglKeluar, kodeBarang, namaBarang, jmlKeluar } = req.body
-        const findBarangMasuk = await dataBarangsModel.findOne({ where: { kodeBarang} });
-        try {
-          if(findBarangMasuk){
-            await dataBarangsModel.update({ jumlahMasuk: parseInt(findBarangMasuk.jumlahMasuk ) - parseInt(jmlKeluar) }, {
-              where: {
-                kodeBarang
-              }
-            });
-          }else{
-            const add = await dataBarangsModel.create({deskripsi, hargaBarang, kodeBarang,namaBarang, jumlahMasuk, satuan});
-          }
-          const add = await barangKeluar.create({tglKeluar, kodeBarang,namaBarang, jmlKeluar})
-          res.json(add)
-        } catch (error) { 
-          return res.status(400).json({ message: ' Belum Tersedia Di Data Barang',
-          data: JSON.parse(kodeBarang)});
-        }
-    },
-    getUser: async (req, res)=>{
-        const get = await barangKeluar.findAll({
-            attributes: ['id','tglKeluar', 'kodeBarang', 'namaBarang', 'jmlKeluar']
-          })
-          const val = get?.map((value)=> {
-            return {
-              ...value.dataValues,
-              kodeBarang: JSON.parse(value?.kodeBarang)
-            }
-          })
-        res.json(val);
-    },
-    putUser: async (req, res)=>{
-        const id = req.params.id
-        const {tglKeluar, kodeBarang,namaBarang, jmlKeluar } = req.body
-        const put = await barangKeluar.update({ tglKeluar, kodeBarang, namaBarang, jmlKeluar }, {
-            where: {
-              id,
-            }
-          })
-        res.json(put)
-    },
-    deleteUser: async (req, res)=>{
-        const id = req.params.id
-        // console.log(req.params, 'idd')
-        const del = await barangKeluar.destroy({
-            where: {
-              id,
-            }
-          })
-        return res.json(req.params)
+  addPengajuan: async (req, res) => {
+    const { nasabahId, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto } = req.body
+    const add = await pengajuan.create({ nasabahId, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto })
+    res.json(add)
+  },
+  getPengajuan: async (req, res) => {
+    const get = await pengajuan.findAll({
+      attributes: ['id', 'nasabahId', 'penjualan', 'hargaPokok', 'biaya', 'labaUsaha', 'pendapatanLain', 'jumlahPendapatan', 'kebutuhanRumahTangga', 'biayaPendidikan', 'jumlahBiayaLuarUsaha', 'pendapatanBersih', 'rasioAngsuran', 'jangkaWaktu', 'nominalPermohonan', 'tujuanPembiayaan', 'jaminan', 'accPermohonan', 'nomorAkad', 'status', 'statusBy', 'statusAt', 'foto']
+    })
+    res.json(get)
+  },
 
-    }
+  putPengajuan: async (req, res) => {
+    const id = req.params.id
+    const { nasabahId, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto } = req.body
+    const put = await pengajuan.update({ nasabahId, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto }, {
+      where: {
+        id,
+      }
+    })
+    res.json(put)
+  },
+  
+  deletePengajuan: async (req, res) => {
+    const id = req.params.id
+    // console.log(req.params, 'idd')
+    const del = await pengajuan.destroy({
+      where: {
+        id,
+      }
+    })
+    return res.json(req.params)
+
+  }
 }

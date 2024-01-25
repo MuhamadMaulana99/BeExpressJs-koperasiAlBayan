@@ -14,11 +14,13 @@ const sequelize = new Sequelize('db_alBayan', 'root', '', {
 // const barangMasukModel = require('./bangunanModel/barangMasukModels.js')(sequelize, Sequelize.DataTypes);
 // const barangKeluarModel = require('./bangunanModel/barangKeluarModels.js')(sequelize, Sequelize.DataTypes);
 // const masterBarang = require('./masterModel/masterBarangModels.js')(sequelize, Sequelize.DataTypes);
+const pengajuan = require('./koperasi/pengajuanModel.js')(sequelize, Sequelize.DataTypes);
 const angsuran = require('./koperasi/angsuranModel.js')(sequelize, Sequelize.DataTypes);
+const permohonan = require('./koperasi/permohonanModel.js')(sequelize, Sequelize.DataTypes);
 const loginModel = require('./Auth/loginModels.js')(sequelize, Sequelize.DataTypes);
 const db = {
   sequelize,
-  models: { loginModel: loginModel, angsuran },
+  models: { loginModel: loginModel, angsuran, permohonan:permohonan, pengajuan: pengajuan },
 
 }
 try {

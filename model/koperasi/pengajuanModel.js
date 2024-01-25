@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes)=>{
-    const masterPengajuan = sequelize.define('tb_pengajuan',{
+    const pengajuan = sequelize.define('tb_pengajuan',{
         nasabahId: {
             type: DataTypes.STRING(50),
             default: null,
@@ -89,5 +89,5 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
     })
-    return masterPengajuan;
+    return pengajuan;
 }
