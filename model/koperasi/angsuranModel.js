@@ -1,35 +1,43 @@
 module.exports = (sequelize, DataTypes)=>{
     const angsuran = sequelize.define('tb_angsuran',{
-        nomor_akad: {
+        nomorAkad: {
             type: DataTypes.STRING(255),
             default: null,
         },
-        staff_basil: {
+        staffBasil: {
             type: DataTypes.INTEGER(11),
             default: null,
         },
-        staff_pokok: {
+        staffPokok: {
             type: DataTypes.INTEGER(11),
             default: null,
         },
-        acc_basil: {
+        accBasil: {
             type: DataTypes.INTEGER(11),
             default: null,
         },
-        staff_by: {
+        accPokok: {
+            type: DataTypes.INTEGER(11),
+            default: null,
+        },
+        staffBy: {
             type: DataTypes.STRING(255),
             default: null,
         },
-        staff_at: {
-            type: DataTypes.INTEGER(11),
+        staffAt: {
+            type: DataTypes.DATE,
             default: null,
         },
-        kasir_by: {
+        kasirBy: {
             type: DataTypes.STRING(255),
             default: null,
         },
-        kasir_at: {
+        kasirAtt: {
             type: DataTypes.INTEGER(11),
+            default: null,
+        },
+        lokasiPembayaran: {
+            type: DataTypes.STRING(255),
             default: null,
         },
     })

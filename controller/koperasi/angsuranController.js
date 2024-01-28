@@ -2,20 +2,20 @@ const {models: {angsuran}} = require('../../model/index.js');
 
 module.exports = {
     addAngsuran: async (req, res)=>{
-        const {nomor_akad, staff_basil, staff_pokok,acc_basil, staff_by,staff_at, kasir_by, kasir_at } = req.body
-        const add = await angsuran.create({nomor_akad, staff_basil, staff_pokok,acc_basil, staff_by,staff_at, kasir_by, kasir_at})
+        const {nomorAkad, staffBasil, staffPokok,accBasil,accPokok, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran } = req.body
+        const add = await angsuran.create({nomorAkad, staffBasil, accPokok, staffPokok,accBasil, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran})
         res.json(add)
     },
     getAngsuran: async (req, res)=>{
         const get = await angsuran.findAll({
-            attributes: ['id','nomor_akad', 'staff_basil', 'staff_pokok','acc_basil', 'staff_by','staff_at', 'kasir_by', 'kasir_at']
+            attributes: ['id','nomorAkad', 'staffBasil', 'staffPokok','accBasil','accPokok', 'staffBy','staffAt', 'kasirBy', 'kasirAtt', 'lokasiPembayaran']
           })
         res.json(get)
     },
     putAngsuran: async (req, res)=>{
         const id = req.params.id
-        const {nomor_akad, staff_basil, staff_pokok,acc_basil, staff_by,staff_at, kasir_by, kasir_at } = req.body
-        const put = await angsuran.update({ nomor_akad, staff_basil, staff_pokok,acc_basil, staff_by,staff_at, kasir_by, kasir_at }, {
+        const {nomorAkad, staffBasil, staffPokok,accBasil,accPokok, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran } = req.body
+        const put = await angsuran.update({ nomorAkad, staffBasil, accPokok, staffPokok,accBasil, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran }, {
             where: {
               id,
             }
