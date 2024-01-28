@@ -1,8 +1,9 @@
 module.exports = (sequelize, DataTypes)=>{
     const pengajuan = sequelize.define('tb_pengajuan',{
         nasabahId: {
-            type: DataTypes.STRING(50),
-            default: null,
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
         },
         penjualan: {
             type: DataTypes.INTEGER(11),

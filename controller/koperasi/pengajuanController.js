@@ -8,7 +8,7 @@ module.exports = {
   },
   getPengajuan: async (req, res) => {
     const get = await pengajuan.findAll({
-      attributes: ['id', 'nasabahId', 'penjualan', 'hargaPokok', 'biaya', 'labaUsaha', 'pendapatanLain', 'jumlahPendapatan', 'kebutuhanRumahTangga', 'biayaPendidikan', 'jumlahBiayaLuarUsaha', 'pendapatanBersih', 'rasioAngsuran', 'jangkaWaktu', 'nominalPermohonan', 'tujuanPembiayaan', 'jaminan', 'accPermohonan', 'nomorAkad', 'status', 'statusBy', 'statusAt', 'foto']
+      attributes: ['nasabahId', 'penjualan', 'hargaPokok', 'biaya', 'labaUsaha', 'pendapatanLain', 'jumlahPendapatan', 'kebutuhanRumahTangga', 'biayaPendidikan', 'jumlahBiayaLuarUsaha', 'pendapatanBersih', 'rasioAngsuran', 'jangkaWaktu', 'nominalPermohonan', 'tujuanPembiayaan', 'jaminan', 'accPermohonan', 'nomorAkad', 'status', 'statusBy', 'statusAt', 'foto']
     })
     res.json(get)
   },
