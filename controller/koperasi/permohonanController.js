@@ -3,7 +3,7 @@ const {models: {permohonan}} = require('../../model/index.js');
 module.exports = {
     addPermohonan: async (req, res)=>{
         const {rekening, namaNasabah, jenisKelamin,alamat, kecamatan,kabupaten, provinsi, saldoTabungan } = req.body
-        const add = await permohonan.create({rekening, namaNasabah, jenisKelamin,alamat, kecamatan,kabupaten, provinsi, saldoTabungan})
+        const add = await permohonan.create({ rekening, namaNasabah, jenisKelamin,alamat, kecamatan,kabupaten, provinsi, saldoTabungan})
         res.json(add)
     },
     getPermohonan: async (req, res)=>{
@@ -14,8 +14,8 @@ module.exports = {
     },
     putPermohonan: async (req, res)=>{
         const id = req.params.id
-        const {rekening, namaNasabah, jenisKelamin,alamat, kecamatan,kabupaten, provinsi, saldoTabungan } = req.body
-        const put = await permohonan.update({ rekening, namaNasabah, jenisKelamin,alamat, kecamatan,kabupaten, provinsi, saldoTabungan }, {
+        const { rekening, namaNasabah, jenisKelamin,alamat, kecamatan,kabupaten, provinsi, saldoTabungan } = req.body
+        const put = await permohonan.update({  rekening, namaNasabah, jenisKelamin,alamat, kecamatan,kabupaten, provinsi, saldoTabungan }, {
             where: {
               id,
             }

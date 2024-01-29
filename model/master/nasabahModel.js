@@ -1,42 +1,38 @@
 module.exports = (sequelize, DataTypes)=>{
-    const permohonan = sequelize.define('tb_Permohonan',{
-        // permohonanId: {
+    const masterNasabah = sequelize.define('tb_mst_nasabah',{
+        // nasabahId: {
         //     type: DataTypes.INTEGER,
         //     primaryKey: true,
         //     autoIncrement: true,
         // },
-        rekening: {
-            type: DataTypes.INTEGER(11),
-            default: null,
-        },
-        namaNasabah: {
+        nama: {
             type: DataTypes.STRING(50),
             default: null,
         },
-        jenisKelamin: {
+        mstRekening: {
             type: DataTypes.STRING(50),
             default: null,
         },
-        alamat: {
+        mstjenisKelamin: {
             type: DataTypes.STRING(50),
             default: null,
         },
-        kecamatan: {
+        mstAlamat: {
             type: DataTypes.STRING(50),
             default: null,
         },
-        kabupaten: {
+        mstKecamatan: {
             type: DataTypes.STRING(50),
             default: null,
         },
-        provinsi: {
+        mstKabupaten: {
             type: DataTypes.STRING(50),
             default: null,
         },
-        saldoTabungan: {
-            type: DataTypes.INTEGER(11),
+        mstProvinsi: {
+            type: DataTypes.STRING(50),
             default: null,
         },
     })
-    return permohonan;
+    return masterNasabah;
 }

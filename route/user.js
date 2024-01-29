@@ -8,7 +8,7 @@ const angsuranController = require('../controller/koperasi/angsuranController.js
 
 const masterAnalisaController = require('../controller/master/analisaController.js');
 const masterStaffController = require('../controller/master/staffController.js');
-const masterKasirController = require('../controller/master/kasirController.js');
+const masterNasabahController = require('../controller/master/nasabahController.js');
 const validation = require('../validation/user/validation.js');
 
 const routers = expess.Router();
@@ -39,10 +39,11 @@ routers.post('/masterAnalisa',masterAnalisaController.addAnalisa);
 routers.delete('/masterAnalisa/:id',masterAnalisaController.deleteAnalisa);
 routers.put('/masterAnalisa/:id',masterAnalisaController.putAnalisa);
 
-routers.get('/masterKasir',masterKasirController.getKasir);
-routers.post('/masterKasir',masterKasirController.addKasir);
-routers.delete('/masterKasir/:id',masterKasirController.deleteKasir);
-routers.put('/masterKasir/:id',masterKasirController.putKasir);
+routers.get('/masterNasabah',masterNasabahController.getNasabah);
+routers.get('/masterNasabah/:id',masterNasabahController.getNasabahId);
+routers.post('/masterNasabah',masterNasabahController.addNasabah);
+routers.delete('/masterNasabah/:id',masterNasabahController.deleteNasabah);
+routers.put('/masterNasabah/:id',masterNasabahController.putNasabah);
 
 routers.get('/masterStaff',masterStaffController.getStaff);
 routers.post('/masterStaff',masterStaffController.addStaff);
