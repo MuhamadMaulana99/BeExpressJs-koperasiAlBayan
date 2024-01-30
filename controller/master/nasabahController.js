@@ -30,23 +30,27 @@ module.exports = {
     const get = await masterNasabah.findAll({
       attributes: ['id', 'nama', 'mstRekening', 'mstjenisKelamin', 'mstAlamat', 'mstKecamatan', 'mstKabupaten', 'mstProvinsi']
     })
-    res.json(get)
+    const val = get?.map((value)=> {
+      return {
+        ...value.dataValues,
+        mstjenisKelamin: JSON.parse(value?.mstjenisKelamin)
+      }
+    })
+    res.json(val)
   },
   getNasabahId: async (req, res, next) => {
     const { id } = req.params;
     try {
-      const get = await masterNasabah.findOne({ where: { id} })
-      res.json(get)
+      const get = await masterNasabah.findOne({ where: { id} });
   
-      next();
       if (get) {
-        res.status(200).json(get);
+        return res.status(200).json(get);
       } else {
-        res.status(404).json({ message: 'Record not found' });
+        return res.status(404).json({ message: 'Record not found' });
       }
     } catch (error) {
       console.error('Error:', error);
-      res.status(500).json({ message: 'Internal Server Error' });
+      return res.status(500).json({ message: 'Internal Server Error' });
     }
 
   },
