@@ -16,6 +16,7 @@ const routers = expess.Router();
 routers.post('/login',loginController.LoginUser);
 routers.post('/register',loginController.addUser);
 routers.get('/allUser',loginController.getUser);
+routers.get('/allUserByRoles',loginController.getUserByRole);
 routers.delete('/allUser/:id',loginController.deleteUser);
 routers.put('/allUser/:id',loginController.putUser);
 

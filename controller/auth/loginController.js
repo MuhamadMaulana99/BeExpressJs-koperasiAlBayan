@@ -17,7 +17,7 @@ module.exports = {
           errorMesagge: `pasword ${password} salahh woii`
         })
       } else {
-        return res.status(200).json({ message: 'Login Berhasil', response:  { id: user?.id, name: user?.username, userRoles: user?.userRoles } })
+        return res.status(200).json({ message: 'Login Berhasil', response: { id: user?.id, name: user?.username, userRoles: user?.userRoles } })
       }
     } catch (error) {
       console.error(error);
@@ -35,7 +35,7 @@ module.exports = {
     const get = await loginModel.findAll({
       attributes: ['id', 'username', 'password', 'userRoles']
     })
-    const val = get?.map((value)=> {
+    const val = get?.map((value) => {
       return {
         ...value.dataValues,
         userRoles: JSON.parse(value?.userRoles)
@@ -43,6 +43,22 @@ module.exports = {
     })
     res.json(val)
   },
+
+  getUserByRole: async (req, res) => {
+    const get = await loginModel.findAll({
+      where: { userRoles: `{"roleUser":"Admin","id":2}` },
+      attributes: ['id', 'username', 'password', 'userRoles']
+    })
+    console.log(get, 'gett')
+    const val = get?.map((value) => {
+      return {
+        ...value.dataValues,
+        userRoles: JSON.parse(value?.userRoles)
+      }
+    })
+    res.json(val)
+  },
+
   putUser: async (req, res) => {
     const id = req.params.id
     const { username, password, userRoles } = req.body
@@ -73,9 +89,9 @@ module.exports = {
       }
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ message: 'Internal Server Error',errorMesagge: error });
+      return res.status(500).json({ message: 'Internal Server Error', errorMesagge: error });
     }
-  
+
 
   }
 }
