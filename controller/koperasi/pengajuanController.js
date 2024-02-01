@@ -2,7 +2,7 @@ const { models: { pengajuan } } = require('../../model/index.js');
 
 module.exports = {
   addPengajuan: async (req, res) => {
-    const { nasabahId, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan,  biayaLainya, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto } = req.body
+    const { nasabahId, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan,   , jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto } = req.body
     const add = await pengajuan.create({ nasabahId, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, biayaLainya, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto })
     res.json(add)
   },
