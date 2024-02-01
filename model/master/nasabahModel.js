@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.STRING(50),
             default: null,
         },
+        mstNik: {
+            type: DataTypes.STRING(50),
+            default: null,
+        },
         mstjenisKelamin: {
             type: DataTypes.STRING(50),
             default: null,

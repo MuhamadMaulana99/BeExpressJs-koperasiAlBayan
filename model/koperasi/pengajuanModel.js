@@ -37,6 +37,10 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.INTEGER(11),
             default: null,
         },
+        biayaLainya: {
+            type: DataTypes.INTEGER(11),
+            default: null,
+        },
         jumlahBiayaLuarUsaha: {
             type: DataTypes.INTEGER(11),
             default: null,

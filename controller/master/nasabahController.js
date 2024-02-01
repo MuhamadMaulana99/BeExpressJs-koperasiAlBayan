@@ -9,6 +9,7 @@ module.exports = {
     const {
       nama,
       mstRekening,
+      mstNik,
       mstjenisKelamin,
       mstAlamat,
       mstKecamatan,
@@ -18,6 +19,7 @@ module.exports = {
     const add = await masterNasabah.create({
       nama,
       mstRekening,
+      mstNik,
       mstjenisKelamin,
       mstAlamat,
       mstKecamatan,
@@ -28,7 +30,7 @@ module.exports = {
   },
   getNasabah: async (req, res) => {
     const get = await masterNasabah.findAll({
-      attributes: ['id', 'nama', 'mstRekening', 'mstjenisKelamin', 'mstAlamat', 'mstKecamatan', 'mstKabupaten', 'mstProvinsi']
+      attributes: ['id', 'nama', 'mstNik', 'mstRekening', 'mstjenisKelamin', 'mstAlamat', 'mstKecamatan', 'mstKabupaten', 'mstProvinsi']
     })
     const val = get?.map((value)=> {
       return {
@@ -59,6 +61,7 @@ module.exports = {
     const id = req.params.id
     const {
       nama,
+      mstNik,
       mstRekening,
       mstjenisKelamin,
       mstAlamat,
@@ -68,6 +71,7 @@ module.exports = {
     } = req.body
     const put = await masterNasabah.update({
       nama,
+      mstNik,
       mstRekening,
       mstjenisKelamin,
       mstAlamat,
