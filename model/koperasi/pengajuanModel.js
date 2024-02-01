@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes)=>{
     const pengajuan = sequelize.define('tb_pengajuan',{
-        nasabahId: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-        },
+        // nasabahId: {
+        //     type: DataTypes.INTEGER,
+        //     primaryKey: true,
+        //     autoIncrement: true,
+        // },
         penjualan: {
             type: DataTypes.INTEGER(11),
             default: null,
