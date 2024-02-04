@@ -33,6 +33,10 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.STRING(50),
             default: null,
         },
+        statusPermohonan: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
         saldoTabungan: {
             type: DataTypes.INTEGER(11),
             default: null,

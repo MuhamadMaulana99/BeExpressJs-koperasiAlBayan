@@ -26,11 +26,14 @@ routers.delete('/angsuran/:id',angsuranController.deleteAngsuran);
 routers.put('/angsuran/:id',angsuranController.putAngsuran);
 
 routers.get('/permohonan',permohonanController.getPermohonan);
+// routers.get('/permohonan',permohonanController.getPermohonan);
 routers.post('/permohonan',permohonanController.addPermohonan);
 routers.delete('/permohonan/:id',permohonanController.deletePermohonan);
 routers.put('/permohonan/:id',permohonanController.putPermohonan);
+routers.put('/approvalPermohonan/:id',permohonanController.approvalPermohonan);
 
 routers.get('/pengajuan',pengajuanController.getPengajuan);
+routers.get('/pengajuanByNoAkad',pengajuanController.getPengajuanByNoAkad);
 routers.post('/pengajuan',pengajuanController.addPengajuan);
 routers.delete('/pengajuan/:id',pengajuanController.deletePengajuan);
 routers.put('/pengajuan/:id',pengajuanController.putPengajuan);

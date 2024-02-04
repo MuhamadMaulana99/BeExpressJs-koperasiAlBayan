@@ -5,6 +5,10 @@ module.exports = (sequelize, DataTypes)=>{
         //     primaryKey: true,
         //     autoIncrement: true,
         // },
+        namaNasabah: {
+            type: DataTypes.STRING(50),
+            default: null,
+        },
         penjualan: {
             type: DataTypes.INTEGER(11),
             default: null,
@@ -54,7 +58,7 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         jangkaWaktu: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING(50),
             default: null,
         },
         nominalPermohonan: {
@@ -82,7 +86,7 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         statusBy: {
-            type: DataTypes.INTEGER(11),
+            type: DataTypes.STRING(50),
             default: null,
         },
         statusAt: {
@@ -90,7 +94,7 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         foto: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING,
             default: null,
         },
     })
