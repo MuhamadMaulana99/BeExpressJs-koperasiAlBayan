@@ -56,6 +56,22 @@ module.exports = {
     }
 
   },
+  getNasabahRekening: async (req, res, next) => {
+    const { mstRekening } = req.params;
+    try {
+      const get = await masterNasabah.findOne({ where: { mstRekening} });
+  
+      if (get) {
+        return res.status(200).json(get);
+      } else {
+        return res.status(404).json({ message: 'Record not found' });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+
+  },
   putNasabah: async (req, res) => {
     // console.log(req.params, 'sss')
     const id = req.params.id

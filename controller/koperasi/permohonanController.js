@@ -48,8 +48,6 @@ module.exports = {
       attributes: ['id', 'rekening', 'namaNasabah', 'jenisKelamin', 'alamat', 'kecamatan', 'kabupaten', 'provinsi', 'statusPermohonan', 'saldoTabungan']
     })
 
-    // console.log(getDataNasabah)
-    // console.log(getPermohonan, 'getPermohonan')
     res.json(getPermohonan)
   },
   putPermohonan: async (req, res) => {

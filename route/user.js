@@ -45,6 +45,7 @@ routers.put('/masterAnalisa/:id',masterAnalisaController.putAnalisa);
 
 routers.get('/masterNasabah',masterNasabahController.getNasabah);
 routers.get('/masterNasabah/:id',masterNasabahController.getNasabahId);
+routers.get('/masterNasabahByRekening/:mstRekening',masterNasabahController.getNasabahRekening);
 routers.post('/masterNasabah',masterNasabahController.addNasabah);
 routers.delete('/masterNasabah/:id',masterNasabahController.deleteNasabah);
 routers.put('/masterNasabah/:id',masterNasabahController.putNasabah);
