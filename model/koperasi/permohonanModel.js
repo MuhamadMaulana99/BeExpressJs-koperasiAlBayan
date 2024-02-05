@@ -37,6 +37,14 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
+        hasilPermohonan: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+        persentase: {
+            type: DataTypes.INTEGER(11),
+            defaultValue: false,
+        },
         saldoTabungan: {
             type: DataTypes.INTEGER(11),
             default: null,

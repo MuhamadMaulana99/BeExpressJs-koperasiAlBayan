@@ -26,7 +26,7 @@ routers.delete('/angsuran/:id',angsuranController.deleteAngsuran);
 routers.put('/angsuran/:id',angsuranController.putAngsuran);
 
 routers.get('/permohonan',permohonanController.getPermohonan);
-// routers.get('/permohonan',permohonanController.getPermohonan);
+routers.get('/permohonanByApprove',permohonanController.getPermohonanByApprove);
 routers.post('/permohonan',permohonanController.addPermohonan);
 routers.delete('/permohonan/:id',permohonanController.deletePermohonan);
 routers.put('/permohonan/:id',permohonanController.putPermohonan);

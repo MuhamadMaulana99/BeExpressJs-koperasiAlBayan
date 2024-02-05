@@ -3,14 +3,14 @@ const { Model, Sequelize, DataTypes } = require('sequelize');
 
 module.exports = {
   addPengajuan: async (req, res) => {
-    const { namaNasabah, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan,biayaLainya, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto } = req.body
-    const add = await pengajuan.create({ namaNasabah, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, biayaLainya, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto })
+    const { rekening,namaNasabah, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan,biayaLainya, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto } = req.body
+    const add = await pengajuan.create({ rekening, namaNasabah, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, biayaLainya, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto })
     res.json(add)
   },
 
   getPengajuan: async (req, res) => {
     const get = await pengajuan.findAll({
-      attributes: [ 'id', 'namaNasabah', 'penjualan', 'hargaPokok', 'biaya', 'labaUsaha', 'pendapatanLain', 'jumlahPendapatan', 'kebutuhanRumahTangga', 'biayaPendidikan', 'biayaLainya', 'jumlahBiayaLuarUsaha', 'pendapatanBersih', 'rasioAngsuran', 'jangkaWaktu', 'nominalPermohonan', 'tujuanPembiayaan', 'jaminan', 'accPermohonan', 'nomorAkad', 'status', 'statusBy', 'statusAt', 'foto']
+      attributes: [ 'id', 'rekening', 'namaNasabah', 'penjualan', 'hargaPokok', 'biaya', 'labaUsaha', 'pendapatanLain', 'jumlahPendapatan', 'kebutuhanRumahTangga', 'biayaPendidikan', 'biayaLainya', 'jumlahBiayaLuarUsaha', 'pendapatanBersih', 'rasioAngsuran', 'jangkaWaktu', 'nominalPermohonan', 'tujuanPembiayaan', 'jaminan', 'accPermohonan', 'nomorAkad', 'status', 'statusBy', 'statusAt', 'foto']
     })
     res.json(get)
   },
@@ -33,8 +33,8 @@ module.exports = {
 
   putPengajuan: async (req, res) => {
     const id = req.params.id
-    const { namaNasabah, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, biayaLainya,jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto } = req.body
-    const put = await pengajuan.update({ namaNasabah,  penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, biayaLainya, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto }, {
+    const { rekening, namaNasabah, penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, biayaLainya,jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto } = req.body
+    const put = await pengajuan.update({  rekening, namaNasabah,  penjualan, hargaPokok, biaya, labaUsaha, pendapatanLain, jumlahPendapatan, kebutuhanRumahTangga, biayaPendidikan, biayaLainya, jumlahBiayaLuarUsaha, pendapatanBersih, rasioAngsuran, jangkaWaktu, nominalPermohonan, tujuanPembiayaan, jaminan, accPermohonan, nomorAkad, status, statusBy, statusAt, foto }, {
       where: {
         id,
       }

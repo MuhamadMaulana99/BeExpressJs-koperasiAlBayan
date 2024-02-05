@@ -5,6 +5,10 @@ module.exports = (sequelize, DataTypes)=>{
         //     primaryKey: true,
         //     autoIncrement: true,
         // },
+        rekening: {
+            type: DataTypes.INTEGER(11),
+            default: null,
+        },
         namaNasabah: {
             type: DataTypes.STRING(50),
             default: null,
