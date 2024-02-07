@@ -4,6 +4,10 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.STRING(255),
             default: null,
         },
+        namaNasabah: {
+            type: DataTypes.STRING(255),
+            default: null,
+        },
         staffBasil: {
             type: DataTypes.INTEGER(11),
             default: null,

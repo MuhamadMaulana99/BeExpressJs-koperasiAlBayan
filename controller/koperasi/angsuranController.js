@@ -2,20 +2,26 @@ const {models: {angsuran}} = require('../../model/index.js');
 
 module.exports = {
     addAngsuran: async (req, res)=>{
-        const {nomorAkad, staffBasil, staffPokok,accBasil,accPokok, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran } = req.body
-        const add = await angsuran.create({nomorAkad, staffBasil, accPokok, staffPokok,accBasil, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran})
+        const {namaNasabah, nomorAkad, staffBasil, staffPokok,accBasil,accPokok, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran } = req.body
+        const add = await angsuran.create({namaNasabah,nomorAkad, staffBasil, accPokok, staffPokok,accBasil, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran})
         res.json(add)
     },
     getAngsuran: async (req, res)=>{
         const get = await angsuran.findAll({
-            attributes: ['id','nomorAkad', 'staffBasil', 'staffPokok','accBasil','accPokok', 'staffBy','staffAt', 'kasirBy', 'kasirAtt', 'lokasiPembayaran']
+            attributes: ['id','namaNasabah','nomorAkad', 'staffBasil', 'staffPokok','accBasil','accPokok', 'staffBy','staffAt', 'kasirBy', 'kasirAtt', 'lokasiPembayaran']
           })
-        res.json(get)
+          const val = get?.map((value)=> {
+            return {
+              ...value.dataValues,
+              nomorAkad: JSON.parse(value?.nomorAkad)
+            }
+          })
+        res.json(val)
     },
     putAngsuran: async (req, res)=>{
         const id = req.params.id
-        const {nomorAkad, staffBasil, staffPokok,accBasil,accPokok, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran } = req.body
-        const put = await angsuran.update({ nomorAkad, staffBasil, accPokok, staffPokok,accBasil, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran }, {
+        const {namaNasabah,nomorAkad, staffBasil, staffPokok,accBasil,accPokok, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran } = req.body
+        const put = await angsuran.update({ namaNasabah, nomorAkad, staffBasil, accPokok, staffPokok,accBasil, staffBy,staffAt, kasirBy, kasirAtt, lokasiPembayaran }, {
             where: {
               id,
             }

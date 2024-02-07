@@ -7,7 +7,6 @@ const permohonanController = require('../controller/koperasi/permohonanControlle
 const angsuranController = require('../controller/koperasi/angsuranController.js');
 
 const masterAnalisaController = require('../controller/master/analisaController.js');
-const masterStaffController = require('../controller/master/staffController.js');
 const masterNasabahController = require('../controller/master/nasabahController.js');
 const validation = require('../validation/user/validation.js');
 
@@ -36,6 +35,7 @@ routers.get('/pengajuan',pengajuanController.getPengajuan);
 routers.get('/pengajuanByNoAkad',pengajuanController.getPengajuanByNoAkad);
 routers.post('/pengajuan',pengajuanController.addPengajuan);
 routers.delete('/pengajuan/:id',pengajuanController.deletePengajuan);
+routers.put('/pengajuanByApprove/:id',pengajuanController.approvalPengajuan);
 routers.put('/pengajuan/:id',pengajuanController.putPengajuan);
 
 routers.get('/masterAnalisa',masterAnalisaController.getAnalisa);
@@ -50,9 +50,5 @@ routers.post('/masterNasabah',masterNasabahController.addNasabah);
 routers.delete('/masterNasabah/:id',masterNasabahController.deleteNasabah);
 routers.put('/masterNasabah/:id',masterNasabahController.putNasabah);
 
-routers.get('/masterStaff',masterStaffController.getStaff);
-routers.post('/masterStaff',masterStaffController.addStaff);
-routers.delete('/masterStaff/:id',masterStaffController.deleteStaff);
-routers.put('/masterStaff/:id',masterStaffController.putStaff);
 
 module.exports = routers;

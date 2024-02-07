@@ -15,12 +15,11 @@ const permohonan = require('./koperasi/permohonanModel.js')(sequelize, Sequelize
 
 const masterAnalisa = require('./master/analisaModel.js')(sequelize, Sequelize.DataTypes);
 const masterNasabah = require('./master/nasabahModel.js')(sequelize, Sequelize.DataTypes);
-const masterStaff = require('./master/staffModel.js')(sequelize, Sequelize.DataTypes);
 
 const loginModel = require('./Auth/loginModels.js')(sequelize, Sequelize.DataTypes);
 const db = {
   sequelize,
-  models: { loginModel: loginModel, angsuran, permohonan:permohonan, pengajuan: pengajuan , masterAnalisa: masterAnalisa, masterNasabah:masterNasabah, masterStaff: masterStaff },
+  models: { loginModel: loginModel, angsuran, permohonan:permohonan, pengajuan: pengajuan , masterAnalisa: masterAnalisa, masterNasabah:masterNasabah },
 
 }
 try {
