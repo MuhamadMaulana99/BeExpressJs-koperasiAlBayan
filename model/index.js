@@ -6,7 +6,12 @@ const Sequelize = require('sequelize');
 // });
 const sequelize = new Sequelize('db_alBayan', 'root', '', {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql', // Ganti dengan dialect yang Anda gunakan
+  // dialectOptions: {
+  //   charset: 'utf8mb4', // Gunakan utf8mb4
+  //   collate: 'utf8mb4_unicode_ci', // Atur collate yang sesuai
+  // },
+  // logging: console.log, // Aktifkan logging untuk debugging
 });
 
 const pengajuan = require('./koperasi/pengajuanModel.js')(sequelize, Sequelize.DataTypes);
