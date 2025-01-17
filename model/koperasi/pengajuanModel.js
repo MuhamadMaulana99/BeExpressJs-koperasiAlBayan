@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes)=>{
         //     autoIncrement: true,
         // },
         rekening: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(255),
             default: null,
         },
         namaNasabah: {
