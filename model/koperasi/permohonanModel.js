@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         namaNasabah: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(255),
             default: null,
         },
         jenisKelamin: {
