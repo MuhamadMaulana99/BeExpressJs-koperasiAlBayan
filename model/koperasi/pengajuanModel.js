@@ -6,11 +6,11 @@ module.exports = (sequelize, DataTypes)=>{
         //     autoIncrement: true,
         // },
         rekening: {
-            type: DataTypes.STRING(255),
+            type: DataTypes.TEXT,
             default: null,
         },
         namaNasabah: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.TEXT,
             default: null,
         },
         penjualan: {
