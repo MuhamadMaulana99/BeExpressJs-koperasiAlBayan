@@ -147,12 +147,10 @@ module.exports = {
       });
       res.json(get);
     } catch (error) {
-      res
-        .status(500)
-        .json({
-          message: "Error fetching pengajuan by nomor akad",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "Error fetching pengajuan by nomor akad",
+        error: error.message,
+      });
     }
   },
 
